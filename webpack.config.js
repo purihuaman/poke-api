@@ -11,17 +11,15 @@ module.exports = {
 	module: {
 		rules: [
 			{
-				test: /\.html$/i,
-				use: {
-					loader: 'html-loader',
-					options: { minimize: true }
-				}
+				test: /\.pug$/i,
+				use: [ { loader: "pug-loader", } ],
 			},
 			{
 				test: /\.s[ac]ss$/i,
 				use: [
 					MiniCssExtractPlugin.loader,
 					'css-loader',
+					'postcss-loader',
 					"sass-loader",
 				],
 			},
@@ -34,19 +32,15 @@ module.exports = {
 	optimization: {},
 	plugins: [
 		new HtmlWebpackPlugin({
-			title: 'Mi webpack',
-			template: './src/index.html',
-			filename: './index.html',
-			scriptLoading: 'blocking',
+			template: "./src/index.pug",
+			filename: "./index.html",
+			scriptLoading: "blocking",
 		}),
 		new MiniCssExtractPlugin({
-			// filename: 'css/styles.[fullhash].css'
 			filename: 'css/styles.css'
 		}),
 		new CopyWebpackPlugin({
 			patterns: [
-        // { from: "src/assets/icons", to: "./icons" },
-        // { from: "./src/assets/", to: "assets/" },
 				{ from: './src/assets/icons', to: 'assets/icons' },
 				{ from: './src/assets/image', to: 'assets/image' }
       ],
@@ -54,7 +48,7 @@ module.exports = {
 	],
 	// Output point
 	output: {
-		clean: true,
+		clean: false,
 		path: path.join( basePath, publicPath),
 		filename: 'js/script.js'
 	}

@@ -1,9 +1,4 @@
 :root {
-	/* Medidas de media querys */
-	$table-width: 768px;
-	$desktop-width: 1024px;
-	$large-desktop-width: 1400px;
-
 	/* COLORS */
 	--bg-color: #FCFCFC;
 	// --text-color: #282828;
@@ -64,15 +59,6 @@
 	--large-gap: 1.5rem;
 	--x-large-gap: 2rem;
 
-	/* Table */
-	--width-table: 1200px;
-	--height-table: 300px;
-	--frozen-width: 10rem;
-
-	// Medidas de las tarjetas de proyectos
-	--height-image: 320px;
-	--width-card: 240px;
-
 	// Box-shadow
 	--box-shadow: 5px 0 15px rgb(0 0 0 /0.2);
 	--box-shadow-second: 0px 4px 40px rgba(0, 0, 0, 0.15);
@@ -80,7 +66,7 @@
 	// Transition
 	--transition: color 0.1s, background-color 0.2s;
 	
-	@media screen and (min-width: $desktop-width) {
+	@media screen and (min-width: 1024px) {
 		& {
 			/* Fonts size */
 			--h1-font-size: 2.5rem;
