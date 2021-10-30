@@ -39,29 +39,11 @@ body {
 // Main
 .main {
 	padding: var(--small-padding);
-	position: relative;
-	z-index: 100;
 	margin-top: var(--header-height);
-
-// Contenedor de las columnnas
-	&__content {
-		display: grid;
-		gap: var(--large-gap);
-		transition: var(--transition);
-	
-		padding: var(--large-padding) 0;
-
-		@media screen and (min-width: 768px) {
-			grid-template-columns: repeat(2, 1fr);
-			overflow: hidden;
-		}
-	}
 }
 
 // // Footer
 .footer {
-	position: relative;
-	z-index: 100;
 	background-color: var(--bg-card-color);
 
 	&__title {

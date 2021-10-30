@@ -1,6 +1,6 @@
-# Webpack JavaScript
+# Poke Api
 
-Este es el proyecto inicial para crear aplicaiones utilizando webpack.
+En este proyecto hacemos peticiones HTPP a la api de PokéAPI, con la libreria Axios
 
 ### Notas:
 Recueden reconstruir los módulos de Node

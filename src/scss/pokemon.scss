@@ -4,6 +4,7 @@
 	&__link {
 		font-family: var(--titles-font);
 		font-size: var(--h2-font-size);
+		text-decoration: none;
 	}
 }
 
@@ -43,6 +44,7 @@
 	grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 	justify-items: center;
 	gap: var(--normal-gap);
+	padding: var(--normal-padding) 0;
 
 
 	&__card {
@@ -92,5 +94,16 @@
 	&__image {
 		height: 24px;
 		width: 24px;
+	}
+}
+
+.footer {
+	&__content {
+		padding: var(--normal-padding) 0;
+		text-align: center;
+	}
+
+	&__text {
+		margin: 0;
 	}
 }
