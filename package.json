@@ -1,7 +1,7 @@
 {
   "name": "webpack-inicial",
   "version": "1.0.0",
-  "description": "Este es un cascaron de webpack",
+  "description": "Este es una web haciendo peticiones a una Api",
   "main": "index.js",
   "scripts": {
     "dev": "webpack --config webpack.config.js",

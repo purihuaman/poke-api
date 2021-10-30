@@ -56,7 +56,7 @@ module.exports = {
 			scriptLoading: "blocking",
 		}),
 		new MiniCssExtractPlugin({
-			filename: 'css/styles[fullhash].css'
+			filename: 'css/styles.css'
 		}),
 		new CopyWebpackPlugin({
 			patterns: [
@@ -69,7 +69,7 @@ module.exports = {
 	output: {
 		clean: true,
 		path: path.join( basePath, publicPath),
-		filename: 'js/script[contenthash].js'
+		filename: 'js/script.js'
 	}
 }
 
