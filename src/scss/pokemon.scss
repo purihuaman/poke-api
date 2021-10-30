@@ -1,0 +1,96 @@
+
+.header {
+
+	&__link {
+		font-family: var(--titles-font);
+		font-size: var(--h2-font-size);
+	}
+}
+
+.banner {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	transition: padding .9s;
+	padding: 15vh 0;
+	
+	@media screen and (min-width: 768px) {
+		padding: 25vh 0;
+	}
+	
+	@media screen and (min-width: 768px) {
+		padding: 30vh 0;
+	}
+
+	&__title{
+		font-size: calc( var(--h1-font-size) + var(--h2-font-size) );
+	}
+
+	&__title,
+	&__text {
+		margin: 0;
+	}
+	&__text {
+		font-size: var(--h3-font-size);
+		color: var(--dark-three);
+	}
+}
+
+.pokemon {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+	justify-items: center;
+	gap: var(--normal-gap);
+
+
+	&__card {
+		width: 100%;
+		max-width: 320px;
+
+		background-color: var(--bg-card-color);
+		text-align: center;
+		border-radius: var(--border-radius);
+		padding: var(--normal-padding);
+	}
+
+	&__name,
+	&__text {
+		margin: var(--small-margin) 0;
+	}
+	
+	&__name {
+		font-size: var(--h2-font-size);
+		font-style: italic;
+	}
+	
+	&__text {
+		color: var(--dark-three);
+		text-transform: capitalize;
+	}
+
+	&__image {
+		margin-left: auto;
+		margin-right: auto;
+		height: 140px;
+	}
+}
+
+.networks {
+	display: flex;
+	align-items: center;
+	gap: var(--small-gap);
+
+	&__link {
+		display: block;
+		text-decoration: none;
+		border-radius: 50%;
+		padding: var(--small-padding);
+	}
+
+	&__image {
+		height: 24px;
+		width: 24px;
+	}
+}

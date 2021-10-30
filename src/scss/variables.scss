@@ -1,0 +1,104 @@
+:root {
+	/* Medidas de media querys */
+	$table-width: 768px;
+	$desktop-width: 1024px;
+	$large-desktop-width: 1400px;
+
+	/* COLORS */
+	--bg-color: #FCFCFC;
+	// --text-color: #282828;
+	--text-color: #11141F;
+	--bg-card-color: #FFFFFF;
+	--dark-three: #849198;
+	--dark-four: #D7D7D7;
+
+	--bg-rgba: rgba(255, 255, 255, 0.5);
+	
+
+	--primary-color: 				#009FFF;
+	--primary-color--hover: #008FFF;
+
+	/* Second color */
+	--second-color: 			 #9147ff;
+	--second-color--hover: #7033DB;
+
+	/* Fonts Family */
+	--titles-font: 'Creepster', cursive, sans-serif;
+	--main-font: 'Roboto', sans-serif;
+
+	/* Fonts size */
+	--h1-font-size: 2rem;
+	--h2-font-size: 1.5rem;
+	--h3-font-size: 1.25rem;
+	--h4-font-size: 1.10rem;
+	--normal-font-size: 1rem;
+	--small-font-size: 0.85rem;
+
+	/* Heights */
+	--header-height: 4rem;
+
+	/* Paddings */
+	--small-padding: 0.5em;
+	--normal-padding: 1em;
+	--large-padding: 1.5em;
+	--x-large-padding: 2em;
+
+	/* Margins */
+	--small-margin: 0.5em;
+	--normal-margin: 1em;
+	--large-margin: 1.5em;
+	--x-large-margin: 2em;
+
+	/* Border-radius */
+	--border-radius: 0.4em;
+	--border-radius-second: .8em;
+
+	/* Z-index */
+	--z-index100: 99;
+	--z-index200: 999;
+	--z-index300: 9999;
+
+	/* grid gaps */
+	--small-gap: 0.5rem;
+	--normal-gap: 1rem;
+	--large-gap: 1.5rem;
+	--x-large-gap: 2rem;
+
+	/* Table */
+	--width-table: 1200px;
+	--height-table: 300px;
+	--frozen-width: 10rem;
+
+	// Medidas de las tarjetas de proyectos
+	--height-image: 320px;
+	--width-card: 240px;
+
+	// Box-shadow
+	--box-shadow: 5px 0 15px rgb(0 0 0 /0.2);
+	--box-shadow-second: 0px 4px 40px rgba(0, 0, 0, 0.15);
+
+	// Transition
+	--transition: color 0.1s, background-color 0.2s;
+	
+	@media screen and (min-width: $desktop-width) {
+		& {
+			/* Fonts size */
+			--h1-font-size: 2.5rem;
+			--h2-font-size: 1.75rem;
+			--h3-font-size: 1.50rem;
+			--h4-font-size: 1.20rem;
+			--normal-font-size: 1.1rem;
+			--small-font-size: .95rem;
+	
+			/* Heights */
+			--header-height: 4.5rem;
+		}
+	}
+	.dark {
+		--text-color: #FFFFFF;
+		--bg-color: #11141F;
+		--bg-card-color: #0A2232;
+
+		--bg-rgba: rgba(10, 34, 50, 0.25);
+	}
+}
