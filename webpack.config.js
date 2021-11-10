@@ -11,6 +11,14 @@ module.exports = {
 	module: {
 		rules: [
 			{
+				test:/\.js$/i,
+				exclude: [/node_modules/],
+				use: {
+					loader: "babel-loader",
+					options: { presets: ['@babel/preset-env'] }
+				}
+			},
+			{
 				test: /\.pug$/i,
 				use: [ { loader: "pug-loader", } ],
 			},
@@ -25,7 +33,7 @@ module.exports = {
 			},
 			{
 				test: /\.(png|jpe?g|gif|webp|svg)$/,
-				use: [ 'file-loader', ]
+				use: [ 'file-loader' ]
 			}
 		],
 	},
@@ -43,14 +51,14 @@ module.exports = {
 			patterns: [
 				{ from: './src/assets/icons', to: 'assets/icons' },
 				{ from: './src/assets/image', to: 'assets/image' }
-      ],
+			]
 		}),
 	],
 	// Output point
 	output: {
 		clean: false,
 		path: path.join( basePath, publicPath),
-		filename: 'js/script.js'
+		filename: 'js/scripts.js'
 	}
 }
 

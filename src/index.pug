@@ -1,55 +1,37 @@
-<!DOCTYPE html>
-<html lang="es">
-	<head>
-		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Pokemon API</title>
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Creepster&family=Roboto&display=swap" rel="stylesheet">
-	</head>
-	<body class="dark">
-		
-		<header class="header">
-			<section class="content">
-				<div class="header__content">
-					<a href="./index.html" class="header__link">Pokemon</a>
+doctype html
+html(lang="es")
+	head
+		meta(charset="UTF-8")
+		meta(http-equiv="X-UA-Compatible", content="IE=edge")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		title Pokemon API
+		link(rel="shortcut icon", href="assets/icons/purihuamanp-blue.svg", type="image/x-icon")
+		link(rel="preconnect" href="https://fonts.googleapis.com")
+		link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+		link(href="https://fonts.googleapis.com/css2?family=Creepster&family=Roboto:wght@400;700&display=swap" rel="stylesheet")
+	body.dark
+		.home
+			.home__image-container
+				img(src="./assets/image/pokemon.jpg", alt="").home__image
+			header.header
+				.content
+					.header__content
+						a(href="./index.html" class="header__link") Pokemon
+						.networks
+							a(href="https://twitter.com/purihuamanp" class="networks__link" class='@purihuamanp' rel="nofollow noopener noreferrer" target="_blank")
+								img(src="assets/icons/twitter.svg" alt="" class='networks__image')
+							a(href="https://github.com/puriihuamanp/poke-api" class="networks__link" class='@purihuamanp' rel="nofollow noopener noreferrer" target="_blank")
+								img(src="./assets/icons/github.svg" alt="" class='networks__image')
+			main.main
+				.content
+					.banner
+						h1.title Api de Pokemon
+						p.text Ve tu pokemon favorito
+					.pokemon#pokemon
+			footer.footer
+				.content
+					.footer__content
+						p(class="footer__text") Desarrollado por <b>Pedro Purihuaman</b> - &copy; 2021
 
-					<div class="networks">
-						<a href="https://twitter.com/purihuamanp" class="networks__link" class='@purihuamanp' rel="nofollow noopener noreferrer" target="_blank">
-							<img src="assets/icons/twitter.svg" alt="" class='networks__image'>
-						</a>
-						<a href="https://github.com/puriihuamanp/poke-api" class="networks__link" class='@purihuamanp' rel="nofollow noopener noreferrer" target="_blank">
-							<img src="./assets/icons/github.svg" alt="" class='networks__image'>
-						</a>
-					</div>
-				</div>
-			</section>
-		</header>
 
-		<main class="main">
-			<section class="content">
-				<section class="banner">
-					<img src="./assets/image/pokemon.jpg" alt="" class="banner__image">
-					.banner__content 
-						<h1 class="banner__title">Api de Pokemon</h1>
-						<p class="banner__text">Ve tu pokemon favorito</p>
-				</section>
-				
-				<section class="pokemon" id="pokemon">
-				</section>
-			</section>
-		</main>
-
-		<footer class="footer">
-			<section class="content">
-				<div class="footer__content">
-					<p class="footer__text">Desarrollado por <b>Pedro Purihuaman</b> - &copy; 2021</p>
-				</div>
-			</section>
-		</footer>
-
-		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-	</body>
-</html>
+		script(src="https://unpkg.com/axios/dist/axios.min.js")

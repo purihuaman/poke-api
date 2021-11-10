@@ -28,7 +28,7 @@ export const readAll = ( ) => {
 						img.classList.add('pokemon__image')
 						img.src = resp.data.sprites.back_default
 
-						type.textContent = `Tipo: ${ resp.data.types[0].type.name }`
+						type.innerHTML = `<b>Tipo: </b>${ resp.data.types[0].type.name }`
 						type.classList.add('pokemon__text')
 						
 						pokemonCard.prepend( img )
