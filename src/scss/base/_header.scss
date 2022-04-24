@@ -1,0 +1,33 @@
+.header {
+	height: var(--header-height);
+	position: sticky;
+	top: 0;
+	border-bottom: 1px solid var(--border-color);
+	padding: 0 var(--n-padding);
+	background-color: var(--second-bg);
+
+	&__content {
+		height: inherit;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	&__link {
+		font-family: var(--titles-font);
+		font-size: var(--header-font);
+		animation: sizes 5s ease-in-out infinite;
+	}
+}
+
+@keyframes sizes {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(0.9);
+	}
+	100% {
+		transform: scale(1);
+	}
+}

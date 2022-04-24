@@ -1,0 +1,26 @@
+@mixin button {
+	display: inline-block;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: nowrap;
+	white-space: nowrap;
+	border: none;
+	padding: 0.7em 1em;
+	font-family: inherit;
+	font-size: var(--details-font);
+	font-weight: normal;
+	text-align: center;
+	line-height: initial;
+	color: var(--grey-200);
+	border: 1px solid transparent;
+	transition: color 0.3s, background-color 0.4s, transform 0.3s;
+	border-radius: var(--bradius);
+	background-color: var(--primary-500);
+	border-color: var(--primary-500);
+	cursor: pointer;
+
+	&:active {
+		transform: var(--transform-scale);
+	}
+}

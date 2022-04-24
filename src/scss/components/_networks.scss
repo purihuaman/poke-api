@@ -1,0 +1,40 @@
+.networks {
+	display: flex;
+	align-items: center;
+	gap: var(--s-gap);
+
+	&__link {
+		display: block;
+		text-decoration: none;
+		padding: var(--s-padding);
+		border: 1px solid transparent;
+		border-radius: var(--bradius);
+		transition: border-color 0.5s;
+		animation: float 5s ease-in-out infinite;
+
+		&:last-child {
+			animation-delay: 2s;
+		}
+
+		&:hover {
+			border-color: var(--border-color);
+		}
+	}
+
+	&__image {
+		height: 24px;
+		width: 24px;
+	}
+}
+
+@keyframes float {
+	0% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-10px);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}

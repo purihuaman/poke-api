@@ -1,0 +1,33 @@
+.table {
+	width: 100%;
+	max-width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	border-collapse: collapse;
+	border: 1px solid var(--border-color);
+	grid-column: 1 / -1;
+	background-color: var(--first-bg);
+
+	&__header {
+		text-align: center;
+		background-color: var(--second-bg);
+	}
+
+	&__row {
+		border: 1px solid var(--border-color);
+	}
+
+	&__head,
+	&__data {
+		padding: var(--s-padding);
+		text-align: center;
+	}
+
+	&__image {
+		height: 80px;
+		display: block;
+
+		margin-left: auto;
+		margin-right: auto;
+	}
+}

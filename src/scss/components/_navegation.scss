@@ -1,0 +1,9 @@
+.navegation {
+	padding: var(--n-padding);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: var(--n-gap);
+	border-top: 1px solid var(--border-color);
+	// background-color: var(--first-bg);
+}

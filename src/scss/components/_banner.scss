@@ -1,0 +1,23 @@
+.banner {
+	height: 50vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	&__title,
+	&__text {
+		text-align: center;
+	}
+
+	&__title {
+		font-family: var(--titles-font);
+		font-size: calc(var(--header-font) + var(--title-font));
+		color: var(--primary-500);
+	}
+
+	&__text {
+		margin: 0;
+		font-size: var(--subtitle-font);
+	}
+}

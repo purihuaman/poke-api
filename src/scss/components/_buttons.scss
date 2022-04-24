@@ -1,0 +1,20 @@
+.button {
+	@include button;
+}
+
+.button--primary {
+	&:hover {
+		background-color: var(--primary-600);
+		border-color: var(--primary-600);
+	}
+}
+.button--ghost {
+	background-color: transparent;
+	color: var(--primary-500);
+
+	&:hover {
+		color: var(--grey-300);
+		border-color: var(--primary-500);
+		background-color: var(--primary-500);
+	}
+}

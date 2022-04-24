@@ -1,0 +1,37 @@
+// ==> Typography <==
+
+@function font-rem($size, $base: 16px) {
+	@if type-of($size) == number and unit($size) == 'px' {
+		@return (calc($size / $base) * 1rem);
+	}
+}
+
+:root {
+	--titles-font: 'Creepster', cursive, sans-serif;
+	--heading-font: 'Inter', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	--main-font: 'Inter', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+
+	--header-font: #{font-rem(32px)};
+	--title-font: #{font-rem(24px)};
+	--subtitle-font: #{font-rem(20px)};
+	--body-font: #{font-rem(17px)};
+	--details-font: #{font-rem(14px)};
+	--smallest-font: #{font-rem(13px)};
+
+	--heading-line-height: 1.3;
+	--body-line-height: 1.7;
+	--fweight-bold: 800;
+	--fweight-semibold: 700;
+	--fweight-normal: normal;
+
+	@include breakpoint(desktop) {
+		--header-font: #{font-rem(40px)};
+		--title-font: #{font-rem(34px)};
+		--subtitle-font: #{font-rem(24px)};
+		--body-font: #{font-rem(18px)};
+		--details-font: #{font-rem(15px)};
+		--smallest-font: #{font-rem(14px)};
+	}
+}

@@ -1,5 +1,32 @@
+// => General breakpoint mixin
+@import './scss/mixin/breakpoint';
 
-@import './scss/variables';
-@import './scss/my-normalize';
-@import './scss/base';
-@import './scss/pokemon';
+// ==> Config <==
+@import './scss/config/variables';
+@import './scss/config/typography';
+@import './scss/config/theme-colors';
+
+// ==> Base <==
+
+@import './scss/base/normalize';
+@import './scss/base/my-reset';
+@import './scss/base/base';
+@import './scss/base/header';
+@import './scss/base/main';
+@import './scss/base/footer';
+
+// ==> Mixin <==
+@import './scss/mixin/button';
+
+// ==> Components <==
+@import './scss/components/search';
+@import './scss/components/pokemon';
+@import './scss/components/networks';
+@import './scss/components/home';
+@import './scss/components/banner';
+@import './scss/components/navegation';
+@import './scss/components/buttons';
+@import './scss/components/table';
+
+// Helpers
+@import './scss/helpers/scroll';
