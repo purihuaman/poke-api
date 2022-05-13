@@ -1,32 +1,22 @@
 const searchPoke = document.getElementById('searchPoke');
-// const pokemonCards = Array.from(document.querySelectorAll('.pokemon__card'));
-// document.querySelectorAll('[data-card="card"]')
-// const pokemonCards = document.querySelectorAll('[data-card="poke"]');
-// const pokemonCards = Array.from(
-// 	document.querySelectorAll('[data-card="poke"]')
-// );
 
-const pokemon = document.getElementById('pokemon');
+const pokemonCards = document.getElementById('pokemon').children;
 
-const pokemonCards = pokemon.querySelectorAll('[data-card="poke"]');
-// const pokemonCards = pokemon.querySelectorAll('.pokemon__card');
-
-const searchFilter = async () => {
-	const pokemons = await pokemonCards;
-	console.log(pokemons);
-	// if (!searchPoke || !pokemonCards) return;
+const searchFilter = () => {
+	if (!searchPoke) return;
 
 	searchPoke.focus();
-
 	searchPoke.addEventListener('keyup', (e) => {
-		const content = e.target.value.toLowerCase();
+		const pokemons = Array.from(pokemonCards);
+		let content = e.target.value.toLowerCase();
 
-		// pokemonCards.filter((poke) => {
-		// 	poke.textContent.toLowerCase().includes(content)
-		// 		? poke.classList.remove('filter')
-		// 		: poke.classList.add('filter');
-		// });
+		pokemons.filter((poke) => {
+			poke.textContent.toLowerCase().includes(content)
+				? poke.classList.remove('filter')
+				: poke.classList.add('filter');
+		});
 	});
+	searchPoke.value = '';
 };
 
 export default searchFilter;

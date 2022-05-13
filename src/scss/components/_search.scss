@@ -1,13 +1,12 @@
 .search {
 	padding: var(--n-padding);
-	background-color: var(--first-bg);
 
 	&__content {
-		padding-bottom: var(--n-padding);
-		border-bottom: 1px solid var(--border-color);
 	}
 
 	&__input {
 		display: block;
+		border-color: var(--primary-500);
+		caret-color: var(--primary-500);
 	}
 }

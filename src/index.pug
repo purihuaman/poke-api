@@ -5,10 +5,10 @@ html(lang="es")
 		meta(http-equiv="X-UA-Compatible", content="IE=edge")
 		meta(name="viewport", content="width=device-width, initial-scale=1.0")
 		title Pokemon API
-		link(rel="shortcut icon", href="assets/icons/purihuamanp-blue.svg", type="image/x-icon")
+		link(rel="shortcut icon", href="assets/icons/purihuaman.svg", type="image/x-icon")
 		link(rel="preconnect" href="https://fonts.googleapis.com")
 		link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
-		link(href="https://fonts.googleapis.com/css2?family=Creepster&family=Inter:wght@400;700;800&display=swap" rel="stylesheet")
+		link(href="https://fonts.googleapis.com/css2?family=Creepster&family=Manrope:wght@400;700;800&display=swap" rel="stylesheet")
 	body.dark
 		.home
 			.home__image-container
@@ -18,55 +18,87 @@ html(lang="es")
 				.container
 					.header__content
 						a(href="./index.html" class="header__link") Pokemon
+
 						.networks
 							a(href="https://twitter.com/purihuamanp" class="networks__link" class='@purihuamanp' rel="nofollow noopener noreferrer" target="_blank")
 								img(src="assets/icons/twitter.svg" alt="" class='networks__image')
 							a(href="https://github.com/puriihuamanp/poke-api" class="networks__link" class='@purihuamanp' rel="nofollow noopener noreferrer" target="_blank")
 								img(src="./assets/icons/github.svg" alt="" class='networks__image')
 
+			.banner
+				h1.banner__title Api de Pokemon
+				p.banner__text Encuentra tu pokemon favorito
+				.search
+					.search__content
+						input(type="text" id="searchPoke" placeholder="Buscar" class="search__input" autofocus)
+
 			main.main
-				.banner
-					h1.banner__title Api de Pokemon
-					p.banner__text Ve tu pokemon favorito
 
 				.container
-					.search
-						.search__content
-							input(type="text" id="searchPoke" placeholder="Buscar" class="search__input")
 					section.pokemon__content
 						.pokemon#pokemon
-							//- table.table#table
-							//- 	thead.table__header
-							//- 		tr.table__row
-							//- 			th.table__head ID
-							//- 			th.table__head Nombre
-							//- 			th.table__head Image
-							//- 			th.table__head Tipo
-							//- 	tbody
 
 						nav.navegation#navegation
+							a(class='button') Anterior
+							a(class='button') Siguiente
+					
+					.modal.hidden#modal
+						.modal__content 
+							template#template
+								article.modal__poke(data-pokecard)
+									div.modal__container-img 
+										img(src="", alt="" data-img class='modal__img')
+									h3.modal__name(data-name)
+									p.modal__type(data-type)
 
+									.modal__body
+										h4.stats__title About
 
+										div.about
+											p.about__text
+												span(data-weight)
+												span Weight
+											p.about__text
+												span(data-height)
+												span Height
 
-					template#template
-						article.pokemon__card(data-card='poke')
-							.pokemon__container
-								img.pokemon__image
-							p.pokemon__name
-							p.pokemon__text
-
-					//- template#template
-					//- 	tr(data-row="row").table__row
-					//- 		td(data-id="id").table__data 1
-					//- 		td(data-name="name").table__data Bulbasaur
-					//- 		td(data-pic="pic").table__data
-					//- 			img(src="", alt="" class="table__image" data-image="image")
-					//- 		td(data-type="type").table__data Grass
+										h4.stats__title Base Status
+										div(class='stats') 
+											div(class='stats__content')
+												p HP
+												p ATK
+												p DEF
+												p SATK
+												p SDEF
+												p SPD
+											div(class='stats__content')
+												span.stats__progress
+													p(data-hp) 
+													progress( max="300" data-progHP)
+												span.stats__progress
+													p(data-atk) 
+													progress( max="300" data-progATK)
+												span.stats__progress
+													p(data-def) 
+													progress( max="300" data-progDEF)
+												span.stats__progress
+													p(data-satk) 
+													progress( max="300" data-progSATK)
+												span.stats__progress
+													p(data-sdef) 
+													progress( max="300" data-progSDEF)
+												span.stats__progress
+													p(data-spd) 
+													progress( max="300" data-progSPD)
 
 			footer.footer
 				.container
 					.footer__content
-						p(class="footer__text") Desarrollado por <b>Pedro Purihuaman</b> - &copy; 2021
+						p(class="footer__text") Desarrollado por 
+							b(class='footer__bold')
+								a(href="https://purihuamanp.netlify.app/" title='Pedro Purihuaman') Pedro Purihuaman
+							| &nbsp;- &copy; 2021
+						
 
 
 		script(src="https://unpkg.com/axios/dist/axios.min.js")

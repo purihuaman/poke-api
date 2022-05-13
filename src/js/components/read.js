@@ -1,137 +1,80 @@
-const urlPokemon = 'https://pokeapi.co/api/v2/pokemon?limit=100';
+const urlPokemon = 'https://pokeapi.co/api/v2/pokemon';
 
-const pokemon = document.getElementById('pokemon');
+const pokemonContent = document.getElementById('pokemon');
 const navegation = document.getElementById('navegation');
+const navegationChild = document.getElementById('navegation').children;
 
-let arrPokemos = [];
-
-async function readAll(url) {
+const getPokemons = async (url) => {
 	try {
+		pokemonContent.innerHTML = `
+			<div class='loader loadText'>
+				Cargando...
+			</div>
+		`;
+
 		const data = await fetch(url);
-		console.log(url);
-		const results = await data.json();
-		const pokemons = await results.results;
+		const {next, previous, results: pokemons} = await data.json();
 
-		getAvatar(pokemons);
+		let templateHtml = '';
+		let prevLink;
+		let nextLink;
+		if (!data.ok) throw {status: data.status, statusText: data.statusText};
 
-		const navButtons = {
-			next: results.next,
-			previous: results.previous,
-		};
-		navegationButtons(navButtons);
-	} catch (err) {
-		console.log(err);
-	}
-}
+		for (let i = 0; i < pokemons.length; i++) {
+			try {
+				const data = await fetch(pokemons[i].url);
+				const pokes = await data.json();
+				// console.log(pokes);
 
-/* const getAvatar = async (objPokemons) => {
-	try {
-		for (const poke of objPokemons) {
-			const data = await fetch(poke.url);
-			const response = await data.json();
-			console.log(response);
+				if (!data.ok) throw {status: data.status, statusText: data.statusText};
 
-			showPokemons(
-				response.id,
-				response.name,
-				response?.sprites?.other?.dream_world?.front_default ||
-					response?.sprites?.front_default,
-				response.types[0].type.name
-			);
+				templateHtml += `
+					<a href=${pokemons[i].url} data-name=${pokemons[i].name}>
+						<article class='pokemon__card' data-id=${pokes?.id} data-name=${pokemons[i].name}>
+							<div class='pokemon__container'>
+								<img src=${pokes?.sprites?.other?.dream_world?.front_default}
+									alt=${pokemons[i]?.name} 
+									class='pokemon__image'
+									loading='lazy'
+								/>
+							</div>
+							<p class='pokemon__name'>${pokemons[i]?.name}</p>
+							<span class='pokemon__text'>${pokes?.types[0]?.type?.name}</span>
+						</article>
+					</a>
+				`;
+			} catch (error) {
+				let message = error.statusText || 'Ocurrio un error';
+				templateHtml.innerHTML += `
+				<figure>
+					<figcaption>${error.status}: ${message}</figcaption>
+				</figure>
+			`;
+			}
 		}
-	} catch (err) {
-		console.log(err);
-	}
-}; */
+		pokemonContent.innerHTML = templateHtml;
 
-const getAvatar = async (objPokemons) => {
-	try {
-		for (const poke of objPokemons) {
-			const data = await fetch(poke.url);
-			const response = await data.json();
-
-			const pokemon = {
-				id: response.id,
-				name: response.name,
-				avatar:
-					response?.sprites?.other?.dream_world?.front_default ||
-					response?.sprites?.front_default,
-				type: response.types[0].type.name,
-			};
-
-			let pokes = [...new Set(arrPokemos['id']), {...pokemon}];
-			arrPokemos = pokes;
-
-			showPokemons(arrPokemos);
-		}
-	} catch (err) {
-		console.log(err);
+		nextLink = previous && navegationChild[0].setAttribute('href', previous);
+		prevLink = next && navegationChild[1].setAttribute('href', next);
+	} catch (error) {
+		let message = error.statusText || 'Ocurrio un error';
+		pokemonContent.innerHTML = `<p>Error ${error.status}: ${message}</p>`;
 	}
 };
 
-const showPokemons = (pokemons) => {
-	if (pokemons.length === 0) {
-		const message = document.createElement('p');
-		message.textContent = 'Cargando...';
-		pokemon.after(message);
-	}
-
-	const template = document.getElementById('template').content;
-	const fragment = document.createDocumentFragment();
-
-	for (const {id, name, avatar, type} of pokemons) {
-		template.querySelector('.pokemon__card').id = id;
-		template.querySelector('.pokemon__image').src = avatar;
-		template.querySelector('.pokemon__image').alt = name;
-		template.querySelector('.pokemon__name').textContent = name;
-		template.querySelector(
-			'.pokemon__text'
-		).innerHTML = `<b>Tipo: ${id} </b>${type}`;
-
-		const templateClone = document.importNode(template, true);
-		fragment.append(templateClone);
-	}
-
-	pokemon.append(fragment);
-};
-
-const navegationButtons = async (navButtons) => {
-	let {next, previous} = await navButtons;
-
-	const buttonNext = document.createElement('button');
-	const buttonPrevious = document.createElement('button');
-	buttonNext.dataset.next = 'next';
-	buttonPrevious.dataset.previous = 'previous';
-	buttonNext.classList.add('button', 'button--primary');
-	buttonPrevious.classList.add('button', 'button--ghost');
-	buttonNext.textContent = 'Siguiente';
-	buttonPrevious.textContent = 'Anterior';
-
-	buttonNext.dataset.url = next;
-	buttonPrevious.dataset.url = previous;
-
+const navegationPokes = () => {
 	if (!navegation) return;
 
-	previous
-		? document.querySelector('[data-previous="previous"]')
-			? buttonPrevious.remove()
-			: navegation.prepend(buttonPrevious)
-		: '';
-
-	next
-		? document.querySelector('[data-next="next"]')
-			? buttonNext.remove()
-			: navegation.append(buttonNext)
-		: '';
+	navegation.addEventListener('click', (e) => {
+		if (e.target.matches('#navegation a')) {
+			e.preventDefault();
+			getPokemons(e.target.getAttribute('href'));
+		}
+	});
 };
-navegation.addEventListener('click', (e) => {
-	if (e.target.classList.contains('button')) {
-		let newUrl = e.target.dataset.url;
-		readAll(newUrl);
-		if (pokemon.hasChildNodes()) pokemon.innerHTML = '';
-	}
-});
 
-const readPokemons = () => readAll(urlPokemon);
+navegationPokes();
+
+const readPokemons = () => getPokemons(urlPokemon);
 
 export default readPokemons;

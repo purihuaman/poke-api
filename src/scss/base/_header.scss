@@ -2,6 +2,7 @@
 	height: var(--header-height);
 	position: sticky;
 	top: 0;
+	z-index: var(--z-tooltip);
 	border-bottom: 1px solid var(--border-color);
 	padding: 0 var(--n-padding);
 	background-color: var(--second-bg);
