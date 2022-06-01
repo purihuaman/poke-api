@@ -17,4 +17,4 @@ Y para construir el build, recuerden:
 yarn build
 ```
 
-![Avatar](./assets/image/pokemon.jpg)
+![Avatar](https://github.com/pvrihuaman/poke-api/tree/main/public/assets/image/pokemon.jpg)
