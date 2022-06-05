@@ -6,5 +6,10 @@
 		border-color: var(--primary-500);
 		caret-color: var(--primary-500);
 		border-radius: var(--bradius);
+		font-size: var(--details-font);
+		line-height: var(--body-line-height);
+		color: var(--text-color);
+		transition: var(--transition);
+		background-color: var(--third-bg);
 	}
 }
