@@ -1,12 +1,10 @@
 .search {
 	padding: var(--n-padding);
 
-	&__content {
-	}
-
 	&__input {
 		display: block;
 		border-color: var(--primary-500);
 		caret-color: var(--primary-500);
+		border-radius: var(--bradius);
 	}
 }
