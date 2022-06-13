@@ -41,7 +41,6 @@ const showModal = (pokes) => {
 
 	if (!template || !fragment) return;
 
-	console.log(pokes);
 	const {id, name, sprites, types, weight, height, stats} = pokes;
 
 	template.querySelector('[data-img]').src =

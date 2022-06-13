@@ -24,7 +24,6 @@ const getPokemons = async (url) => {
 			try {
 				const data = await fetch(pokemons[i].url);
 				const pokes = await data.json();
-				// console.log(pokes);
 
 				if (!data.ok) throw {status: data.status, statusText: data.statusText};
 
