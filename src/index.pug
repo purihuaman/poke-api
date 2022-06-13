@@ -5,14 +5,14 @@ html(lang="es")
 		meta(http-equiv="X-UA-Compatible", content="IE=edge")
 		meta(name="viewport", content="width=device-width, initial-scale=1.0")
 		title Pokemon API
-		link(rel="shortcut icon", href="assets/icons/pvrihuaman.svg", type="image/x-icon")
+		link(rel="shortcut icon", href="./assets/images/purihuaman.svg", type="image/x-icon")
 		link(rel="preconnect" href="https://fonts.googleapis.com")
 		link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
 		link(href="https://fonts.googleapis.com/css2?family=Creepster&family=Mulish:wght@400;700;800&display=swap" rel="stylesheet")
 	body.dark
 		.home
 			.home__image-container
-				img(src="./assets/image/pokemon.jpg", alt="").home__image
+				img(src="./assets/images/pokemon.jpg", alt="").home__image
 
 			header.header
 				.container
@@ -20,9 +20,10 @@ html(lang="es")
 						a(href="./index.html" class="header__link") Pokemon
 
 						.networks
-							a(href="https://twitter.com/pvrihuaman" class="networks__link" class='@purihuamanp' rel="nofollow noopener noreferrer" target="_blank")
-								img(src="assets/icons/twitter.svg" alt="" class='networks__image')
-							a(href="https://github.com/pvrihuaman/poke-api" class="networks__link" class='@purihuamanp' rel="nofollow noopener noreferrer" target="_blank")
+							a(href="https://twitter.com/purihuamanp" class="networks__link" class='@purihuamanp' rel="nofollow noopener noreferrer" target="_blank")
+								img(src="./assets/icons/twitter.svg" alt="" class='networks__image')
+
+							a(href="https://github.com/purihuaman/poke-api" class="networks__link" class='@purihuamanp' rel="nofollow noopener noreferrer" target="_blank")
 								img(src="./assets/icons/github.svg" alt="" class='networks__image')
 
 			.banner
@@ -47,7 +48,7 @@ html(lang="es")
 							template#template
 								article.modal__poke(data-pokecard)
 									div.modal__container-img 
-										img(src="", alt="" data-img class='modal__img')
+										img(src="" alt="" data-img class='modal__img')
 									h3.modal__name(data-name)
 									p.modal__type(data-type)
 
@@ -96,5 +97,5 @@ html(lang="es")
 					.footer__content
 						p(class="footer__text") Desarrollado por 
 							b(class='footer__bold')
-								a(href="https://pvrihuaman.netlify.app/" title='Pedro Purihuaman') Pedro Purihuaman
+								a(href="https://purihuaman.netlify.app/" title='Pedro Purihuaman' target='_blank') Pedro Purihuaman
 							| &nbsp;- &copy; 2021

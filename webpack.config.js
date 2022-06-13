@@ -1,26 +1,25 @@
-
-const path 		 = require('path'),
-			basePath = __dirname,
-			publicPath = 'public',
-			HtmlWebpackPlugin = require('html-webpack-plugin'),
-			MiniCssExtractPlugin = require('mini-css-extract-plugin'),
-			CopyWebpackPlugin = require('copy-webpack-plugin');
+const path = require('path'),
+	basePath = __dirname,
+	publicPath = 'public',
+	HtmlWebpackPlugin = require('html-webpack-plugin'),
+	MiniCssExtractPlugin = require('mini-css-extract-plugin'),
+	CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
 	mode: 'development',
 	module: {
 		rules: [
 			{
-				test:/\.js$/i,
+				test: /\.js$/i,
 				exclude: [/node_modules/],
 				use: {
-					loader: "babel-loader",
-					options: { presets: ['@babel/preset-env'] }
-				}
+					loader: 'babel-loader',
+					options: {presets: ['@babel/preset-env']},
+				},
 			},
 			{
 				test: /\.pug$/i,
-				use: [ { loader: "pug-loader", } ],
+				use: [{loader: 'pug-loader'}],
 			},
 			{
 				test: /\.s[ac]ss$/i,
@@ -28,37 +27,36 @@ module.exports = {
 					MiniCssExtractPlugin.loader,
 					'css-loader',
 					'postcss-loader',
-					"sass-loader",
+					'sass-loader',
 				],
 			},
 			{
 				test: /\.(png|jpe?g|gif|webp|svg)$/,
-				use: [ 'file-loader' ]
-			}
+				use: ['file-loader'],
+			},
 		],
 	},
 	optimization: {},
 	plugins: [
 		new HtmlWebpackPlugin({
-			template: "./src/index.pug",
-			filename: "./index.html",
-			scriptLoading: "blocking",
+			template: './src/index.pug',
+			filename: './index.html',
+			scriptLoading: 'blocking',
 		}),
 		new MiniCssExtractPlugin({
-			filename: 'css/styles.css'
+			filename: 'css/styles.css',
 		}),
 		new CopyWebpackPlugin({
 			patterns: [
-				{ from: './src/assets/icons', to: 'assets/icons' },
-				{ from: './src/assets/image', to: 'assets/image' }
-			]
+				{from: './src/assets/icons', to: 'assets/icons'},
+				{from: './src/assets/images', to: 'assets/images'},
+			],
 		}),
 	],
 	// Output point
 	output: {
 		clean: false,
-		path: path.join( basePath, publicPath),
-		filename: 'js/scripts.js'
-	}
-}
-
+		path: path.join(basePath, publicPath),
+		filename: 'js/scripts.js',
+	},
+};
